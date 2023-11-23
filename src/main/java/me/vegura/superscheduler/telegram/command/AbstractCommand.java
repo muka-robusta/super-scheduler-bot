@@ -1,4 +1,4 @@
-package me.vegura.superscheduler.telegram;
+package me.vegura.superscheduler.telegram.command;
 
 
 import lombok.extern.slf4j.Slf4j;

@@ -4,20 +4,21 @@ import lombok.RequiredArgsConstructor;
 import me.vegura.superscheduler.domain.ScheduleEvent;
 import org.springframework.stereotype.Component;
 
+import java.util.Collection;
 import java.util.Comparator;
 import java.util.Optional;
 import java.util.Set;
 
 @Component
 @RequiredArgsConstructor
-public class ScheduleDayTextConverter implements TextConverter<Set<ScheduleEvent>> {
+public class ScheduleDayTextConverter implements TextConverter<Collection<ScheduleEvent>> {
 
     private static final String EMPTY_DAY_SCHEDULE_TEXT = "Schedule records is empty";
 
     private final ScheduleEventTextConverter singleEventConverter;
 
     @Override
-    public String convert(Set<ScheduleEvent> dayScheduleSet) {
+    public String convert(Collection<ScheduleEvent> dayScheduleSet) {
         final Optional<ScheduleEvent> maybeFirstEvent = dayScheduleSet.stream().findFirst();
         if (maybeFirstEvent.isEmpty())
             return EMPTY_DAY_SCHEDULE_TEXT;

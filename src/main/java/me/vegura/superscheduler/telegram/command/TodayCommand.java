@@ -3,7 +3,6 @@ package me.vegura.superscheduler.telegram.command;
 import me.vegura.superscheduler.converters.ScheduleDayTextConverter;
 import me.vegura.superscheduler.domain.ScheduleEvent;
 import me.vegura.superscheduler.service.ScheduleService;
-import me.vegura.superscheduler.telegram.AbstractCommand;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;

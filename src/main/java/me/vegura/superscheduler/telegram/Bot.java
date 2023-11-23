@@ -17,16 +17,22 @@ import javax.annotation.PostConstruct;
 public class Bot extends TelegramLongPollingCommandBot {
 
     private final TelegramConfig telegramConfig;
+    private final QueueProcessorContext queueProcessorContext;
 
-    public Bot(DefaultBotOptions botOptions, TelegramConfig config, CommandHolder commandHolder) {
+    public Bot(DefaultBotOptions botOptions,
+               TelegramConfig config,
+               CommandHolder commandHolder,
+               QueueProcessorContext queueProcessorContext) {
         super(botOptions);
         this.telegramConfig = config;
+        this.queueProcessorContext = queueProcessorContext;
         register(commandHolder.getTodayCommand());
+        register(commandHolder.getRegisterNotificationCommand());
     }
 
     @Override
     public void processNonCommandUpdate(Update update) {
-
+        queueProcessorContext.checkForProcess(update);
     }
 
     @PostConstruct
