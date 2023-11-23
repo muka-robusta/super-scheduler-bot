@@ -28,6 +28,8 @@ public class Bot extends TelegramLongPollingCommandBot {
         this.queueProcessorContext = queueProcessorContext;
         register(commandHolder.getTodayCommand());
         register(commandHolder.getRegisterNotificationCommand());
+        register(commandHolder.getCalendarCommand());
+        register(commandHolder.getStartCommand());
     }
 
     @Override
